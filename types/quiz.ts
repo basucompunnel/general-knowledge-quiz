@@ -6,6 +6,15 @@ export interface QuizCategory {
   color?: string;
 }
 
+export interface QuizTopic {
+  id: string;
+  name: string;
+  description: string;
+  categoryId: string;
+  icon: string;
+  color?: string;
+}
+
 export type DifficultyLevel = "easy" | "medium" | "hard";
 
 export interface QuizQuestion {

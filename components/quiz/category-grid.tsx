@@ -4,11 +4,6 @@ import { CategoryCard } from "@/components/quiz/category-card";
 import { categories } from "@/lib/data/categories";
 
 export function CategoryGrid() {
-  const handleCategoryClick = (categoryId: string) => {
-    // TODO: Navigate to quiz page for selected category
-    console.log("Selected category:", categoryId);
-  };
-
   return (
     <div className="w-full">
       <div className="mb-8 text-center">
@@ -20,7 +15,7 @@ export function CategoryGrid() {
           <CategoryCard
             key={category.id}
             category={category}
-            onClick={() => handleCategoryClick(category.id)}
+            href={`/quiz/${category.id}`}
           />
         ))}
       </div>
