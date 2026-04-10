@@ -92,31 +92,33 @@ export function DifficultySelection({
                   difficulty.icon as keyof typeof Icons
                 ] as React.ComponentType<{ className?: string }>;
                 return (
-                  <Card
+                  <Link
                     key={difficulty.level}
-                    className="cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg"
+                    href={`/quiz/${category.id}/${topic.id}/${difficulty.level}`}
                   >
-                    <div className="flex items-center gap-4 p-4 py-0">
-                      <div
-                        className={cn(
-                          "w-16 h-16 rounded-lg flex items-center justify-center shrink-0",
-                          difficulty.color,
-                        )}
-                      >
-                        {DifficultyIcon && (
-                          <DifficultyIcon className="w-8 h-8 text-white" />
-                        )}
+                    <Card className="cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg">
+                      <div className="flex items-center gap-4 p-4 py-0">
+                        <div
+                          className={cn(
+                            "w-16 h-16 rounded-lg flex items-center justify-center shrink-0",
+                            difficulty.color,
+                          )}
+                        >
+                          {DifficultyIcon && (
+                            <DifficultyIcon className="w-8 h-8 text-white" />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <CardTitle className="text-xl mb-1">
+                            {difficulty.name}
+                          </CardTitle>
+                          <CardDescription>
+                            {difficulty.description}
+                          </CardDescription>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl mb-1">
-                          {difficulty.name}
-                        </CardTitle>
-                        <CardDescription>
-                          {difficulty.description}
-                        </CardDescription>
-                      </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </Link>
                 );
               })}
             </div>
